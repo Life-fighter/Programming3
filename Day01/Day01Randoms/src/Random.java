@@ -11,28 +11,37 @@ import java.util.Scanner;
  */
 public class Random {
 
+    static Scanner scanner = new Scanner(System.in);
+    static Random random = new Random();
+
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
+
 
         System.out.println("How many random integers do you want ?");
         int number = scanner.nextInt();
+        scanner.nextLine();
 
-        System.out.println("Enter minimum: ");
-        String minString = scanner.nextLine();
-       scanner.nextLine();
-
-        System.out.println("Enter max: ");
-        String maxString = scanner.nextLine();
-        int min, max;
-
-        try {
-            min = Integer.parseInt(minString);
-            max = Integer.parseInt(maxString);
-        } catch (NumberFormatException e) {
-            System.out.println("Error: Invalid input. Please enter integers only.");
+        if(number < 0){
+            System.out.println("Error, number must be a positive integer.");
             return;
         }
+
+        System.out.println("What's your name?");
+        String name = scanner.nextLine();
+        if(name.equals("")){
+            System.out.println("Error: name must not be empty");
+            return;
+        }
+
+
+        System.out.println("Enter minimum: ");
+        int min = scanner.nextInt();
+
+
+        System.out.println("Enter max: ");
+        int max = scanner.nextInt();
+
 
 
         if(min > max){
